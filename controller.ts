@@ -1,6 +1,14 @@
 import {appStore, delUsers, incrementCounter, setUsers, User} from './store'
 import {Unsubscribe} from 'redux'
 
+/**
+ *
+ * This class demonstrates how business logic could be orchestrated
+ * in the context of a react app
+ *
+ * Note that as the app becomes larger, it could be reasonable to delegate
+ * page specific logic, to sub controllers
+ * */
 class Controller {
   interval?: number
   unsub?: Unsubscribe
@@ -34,6 +42,7 @@ class Controller {
 
     setTimeout(
       () =>
+        // free dummy api
         fetch('https://jsonplaceholder.typicode.com/users')
           .then((response) => response.json())
           .then((json) => appStore.dispatch(setUsers(json as User[]))),

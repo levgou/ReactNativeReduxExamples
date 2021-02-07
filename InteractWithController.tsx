@@ -1,9 +1,14 @@
 import React from 'react'
 import {Button, StyleSheet, Text, View} from 'react-native'
-import {AppState, incrementCounter} from './store'
+import {AppState} from './store'
 import {connect} from 'react-redux'
-import { controller } from "./controller";
+import {controller} from './controller'
 
+/**
+ *  This components renders the counter, while a regular class updates the store with its value.
+ *  This use case is useful when we want to user Redux only as a data store, and dont want
+ *  to introduce state producing business logic to it
+ * */
 export class _InteractWithController extends React.Component<{counter: number; increment: () => void}, any> {
   render() {
     return (

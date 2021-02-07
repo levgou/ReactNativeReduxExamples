@@ -4,6 +4,12 @@ import {AppState, User} from './store'
 import {connect} from 'react-redux'
 import {controller} from './controller'
 
+/**
+ *  This show cases a simple example of rendering api fetched data
+ *  The dumb component is not aware of where the users come from, or what the onPush does.
+ *
+ *  This example also demonstrates how to decouple API fetch logic, from data store, from UI rendering
+ * */
 class _APICallExample extends React.Component<{users: User[]}, {waiting: boolean}> {
   state = {waiting: false}
 
