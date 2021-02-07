@@ -1,5 +1,7 @@
 import {appStore, delUsers, incrementCounter, setUsers, User} from './store'
 import {Unsubscribe} from 'redux'
+import React from 'react'
+import {NavigationContainer} from '@react-navigation/native'
 
 /**
  *
@@ -12,6 +14,7 @@ import {Unsubscribe} from 'redux'
 class Controller {
   interval?: number
   unsub?: Unsubscribe
+  navRef = React.createRef<{navigate: (name: string, params: object) => void}>()
 
   // both bellow demonstrate interaction with store from regular classes
   startCounting = () => {
@@ -48,6 +51,11 @@ class Controller {
           .then((json) => appStore.dispatch(setUsers(json as User[]))),
       2000,
     )
+  }
+
+  // this showcases how to navigate from a "regular" class
+  navigateToCont = () => {
+    this.navRef.current?.navigate('Cont', {})
   }
 }
 

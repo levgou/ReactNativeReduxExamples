@@ -21,6 +21,7 @@ import {Provider} from 'react-redux'
 import {appStore} from './store'
 import { InteractWithController } from "./InteractWithController";
 import { APICallExample } from "./APICallExample";
+import { controller } from "./controller";
 
 const Stack = createStackNavigator()
 
@@ -58,7 +59,7 @@ class Home extends React.Component<{}, {}> {
 function App() {
   return (
     <Provider store={appStore}>
-      <NavigationContainer>
+      <NavigationContainer ref={controller.navRef}>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Basic" component={BasicReduxPage} />

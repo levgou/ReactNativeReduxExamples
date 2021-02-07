@@ -17,6 +17,7 @@ export class _BasicReduxPage extends React.Component<{counter: number; increment
       <View style={styles.root}>
         <Text style={{fontSize: 30}}>Count / 3 = {this.props.counter}</Text>
         <Button title={'INC'} onPress={this.props.increment} />
+        <Button title={'GOTO Cont'} onPress={controller.navigateToCont} />
       </View>
     )
   }
